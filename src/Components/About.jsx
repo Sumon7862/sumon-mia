@@ -78,7 +78,7 @@ const About = () => {
         {/* 📄 Download CV */}
         <div className="text-center">
           <a
-            href="/Golam_Kibria_Hassan_CV.pdf"
+            href="/Sumon_Mia_CV.pdf"
             download
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
           >
