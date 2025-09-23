@@ -19,7 +19,6 @@ const skills = [
   { name: "Java (Android)", color: "bg-pink-50 text-pink-700" },
   { name: "C", color: "bg-gray-200 text-gray-800" },
   { name: "C++", color: "bg-gray-200 text-gray-800" },
-  { name: "Java", color: "bg-gray-200 text-gray-800" },
 ];
 
 const Skills = () => {

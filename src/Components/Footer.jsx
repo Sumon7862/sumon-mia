@@ -9,7 +9,7 @@ const Footer = () => {
 
         <div className="flex gap-4 mt-4 sm:mt-0">
           <a
-            href="https://github.com/kibria900"
+            href="https://github.com/Sumon7862"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-800 transition"
@@ -18,7 +18,7 @@ const Footer = () => {
             <Github size={20} />
           </a>
           <a
-            href="https://www.linkedin.com/in/golam-kibria-hassan/"
+            href="https://www.linkedin.com/in/md-aminul-islam-sumon-785061376/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-800 transition"

@@ -5,43 +5,43 @@ const projects = [
     title: "Portfolio Website",
     description:
       "A modern and responsive portfolio website built using React and Tailwind CSS. It showcases personal projects, skills, and contact info.",
-    link: "https://portfoliokibria.netlify.app/",
+    link: "https://my-portfolio7862.netlify.app/",
   },
   {
-    title: "E-commerce App",
+    title: "E-commerce Website",
     description:
-      "A full-featured e-commerce web app with user authentication, product management, cart, and Stripe payment integration.",
-    link: "https://your-ecommerce-app.com",
-  },
-  {
-    title: "Blog Platform",
-    description:
-      "A full-stack blog application where users can read, write, and manage articles with Markdown support.",
-    link: "https://your-blog-app.com",
+      "A full-featured e-commerce website with user authentication, product management, cart, and Stripe payment integration.",
+    link: "https://bikriplus.netlify.app/",
   },
   {
     title: "Task Manager",
     description:
-      "A simple and clean task management app with drag-and-drop support and user authentication.",
-    link: "https://your-task-app.com",
+      "A simple, clean To-Do app landing page with minimal design, intuitive UI, and focused functionality.",
+    link: "https://todo7862.netlify.app/",
   },
   {
-    title: "Chat App",
+    title: "Landing Page Design",
     description:
-      "A real-time chat application built using Socket.IO and React, supporting private and group chats.",
-    link: "https://your-chat-app.com",
+      "Professional and modern corporate landing page with clean design, clear content sections, and intuitive navigation.",
+    link: "https://corporatelandingpagedesign.netlify.app/",
   },
   {
-    title: "Weather App",
+    title: "Number Guessing Game",
     description:
-      "A minimal weather forecast app using OpenWeatherMap API and location access.",
-    link: "https://your-weather-app.com",
+      "Fun & interactive number-guessing game web page with simple UI, instant feedback, and easy user engagement.",
+    link: "https://sumon7862.github.io/Guessing-Game/",
   },
   {
-    title: "Finance Tracker",
+    title: "MCQ Quiz System",
     description:
-      "Track income and expenses with beautiful graphs and local storage support.",
-    link: "https://your-finance-tracker.com",
+      "A streamlined MCQ quiz app with clean interface, clear questions & answers, and instant result feedback.",
+    link: "https://sumon7862.github.io/MCQ-Project/",
+  },
+  {
+    title: "Counter",
+    description:
+      "Minimal & responsive counter app UI with large buttons and instant feedback.",
+    link: "https://sumon7862.github.io/Counter/",
   },
 ];
 

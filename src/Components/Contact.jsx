@@ -12,22 +12,27 @@ const Contact = () => {
         </p>
 
         <div className="flex justify-center gap-4 flex-wrap mb-8">
+          {/* 📧 Email */}
           <a
-            href="mailto:kibriahassan3500@gmail.com"
+            href="mailto: mdaminulislamsumon786245@gmail.com"
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full font-medium transition"
           >
             <Mail size={18} /> Send Email
           </a>
+
+          {/* 🐱 GitHub */}
           <a
-            href="https://github.com/kibria900"
+            href="https://github.com/Sumon7862"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-gray-800 hover:bg-black text-white px-5 py-3 rounded-full font-medium transition"
           >
             <Github size={18} /> GitHub
           </a>
+
+          {/* 🔗 LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/golam-kibria-hassan/"
+            href="https://www.linkedin.com/in/md-aminul-islam-sumon-785061376/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-full font-medium transition"
@@ -37,7 +42,7 @@ const Contact = () => {
         </div>
 
         <p className="text-sm text-gray-500">
-          © {new Date().getFullYear()} Golam Kibria Hassan. All rights reserved.
+          © {new Date().getFullYear()} Sumon Mia. All rights reserved.
         </p>
       </div>
     </section>
