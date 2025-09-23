@@ -2,7 +2,10 @@ import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gradient-to-br from-white via-blue-50 to-emerald-50 py-20">
+    <section
+      id="about"
+      className="bg-gradient-to-br from-white via-blue-50 to-emerald-50 py-20"
+    >
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-blue-700 mb-8 border-b-4 border-blue-500 inline-block">
           About Me
@@ -77,8 +80,9 @@ const About = () => {
 
         {/* 📄 Download CV */}
         <div className="text-center">
+          {/* Make sure the PDF file is in public folder and named exactly */}
           <a
-            href="/Sumon_Mia_CV.pdf"
+            href="/Sumon_CV.pdf"
             download
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
           >
