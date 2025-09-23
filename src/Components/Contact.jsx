@@ -42,10 +42,6 @@ const Contact = () => {
             <Linkedin size={18} /> LinkedIn
           </a>
         </div>
-
-        <p className="text-sm sm:text-base text-gray-500">
-          © {new Date().getFullYear()} Sumon Mia. All rights reserved.
-        </p>
       </div>
     </section>
   );

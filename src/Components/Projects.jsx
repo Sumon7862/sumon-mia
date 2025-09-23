@@ -53,30 +53,30 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-black py-24 transition-colors duration-300"
+      className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-black py-20 sm:py-24 transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-14 text-center border-b-4 border-blue-300 inline-block pb-2">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-12 sm:mb-14 text-center border-b-4 border-blue-300 inline-block pb-2">
           My Projects
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {visibleProjects.map((project, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col"
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 flex flex-col"
             >
-              <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-3">
+              <h3 className="text-xl sm:text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 flex-grow leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-6 flex-grow leading-relaxed">
                 {project.description}
               </p>
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 font-medium px-5 py-2.5 rounded-full transition duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm sm:text-base transition duration-300"
               >
                 🔗 View Project
               </a>
@@ -84,10 +84,10 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 sm:mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-6 py-3 rounded-full bg-gray-800 text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition duration-300"
+            className="px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-gray-800 text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition duration-300 text-sm sm:text-base"
           >
             {showAll ? "See Less" : "See More"}
           </button>

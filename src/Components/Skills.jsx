@@ -16,23 +16,22 @@ const skills = [
   { name: "Git & GitHub", color: "bg-gray-50 text-gray-700" },
   { name: "Netlify", color: "bg-blue-50 text-blue-700" },
   { name: "Vercel", color: "bg-green-50 text-green-700" },
-  { name: "Java (Android)", color: "bg-pink-50 text-pink-700" },
   { name: "C", color: "bg-gray-200 text-gray-800" },
   { name: "C++", color: "bg-gray-200 text-gray-800" },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-gradient-to-br from-white to-blue-50 py-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-blue-700 mb-10 text-center border-b-4 border-blue-400 inline-block">
+    <section id="skills" className="bg-gradient-to-br from-white to-blue-50 py-20 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-700 mb-10 text-center border-b-4 border-blue-400 inline-block pb-2">
           My Skills
         </h2>
-        <div className="flex flex-wrap justify-center gap-3 text-sm sm:text-base font-medium mt-6">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mt-6">
           {skills.map((skill, index) => (
             <span
               key={index}
-              className={`${skill.color} px-4 py-2 rounded-full shadow-sm hover:shadow-md transition duration-300`}
+              className={`${skill.color} px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-sm hover:shadow-md transition duration-300 text-xs sm:text-sm md:text-base`}
             >
               {skill.name}
             </span>

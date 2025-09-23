@@ -14,15 +14,19 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600">Sumon Mia</div>
-          <div className="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+          <div className="text-xl sm:text-2xl font-bold text-blue-600">Sumon Mia</div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-6 text-gray-700 font-medium text-sm sm:text-base">
             <a href="#home" className="hover:text-blue-500 transition">Home</a>
             <a href="#about" className="hover:text-blue-500 transition">About</a>
             <a href="#skills" className="hover:text-blue-500 transition">Skills</a>
             <a href="#projects" className="hover:text-blue-500 transition">Projects</a>
             <a href="#contact" className="hover:text-blue-500 transition">Contact</a>
           </div>
+
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-gray-700 focus:outline-none"
             onClick={toggleMenu}
@@ -33,10 +37,10 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Transparent Click Overlay: sidebar open হলে sidebar ছাড়া বাকী জায়গায় ক্লিক করলে sidebar বন্ধ হবে */}
+      {/* Transparent Click Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-transparent"
+          className="fixed inset-0 z-40 bg-black bg-opacity-20 md:hidden"
           onClick={toggleMenu}
         />
       )}
@@ -49,47 +53,24 @@ const Navbar = () => {
           transition-transform duration-300 ease-in-out z-50
           ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <nav className="space-y-6 text-base font-medium">
-          <a
-            href="#home"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Home className="w-5 h-5" />
-            Home
-          </a>
-          <a
-            href="#about"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <User className="w-5 h-5" />
-            About
-          </a>
-          <a
-            href="#skills"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Clipboard className="w-5 h-5" />
-            Skills
-          </a>
-          <a
-            href="#projects"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Code className="w-5 h-5" />
-            Projects
-          </a>
-          <a
-            href="#contact"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Mail className="w-5 h-5" />
-            Contact
-          </a>
+        <nav className="space-y-4 sm:space-y-6 text-sm sm:text-base font-medium">
+          {[
+            { name: "Home", icon: Home, href: "#home" },
+            { name: "About", icon: User, href: "#about" },
+            { name: "Skills", icon: Clipboard, href: "#skills" },
+            { name: "Projects", icon: Code, href: "#projects" },
+            { name: "Contact", icon: Mail, href: "#contact" },
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={toggleMenu}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+            >
+              <item.icon className="w-5 h-5" />
+              {item.name}
+            </a>
+          ))}
         </nav>
       </div>
 
