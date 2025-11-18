@@ -13,7 +13,7 @@ const About = () => {
 
         <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
           Hello! I'm <strong className="text-blue-600">Sumon Mia</strong>, a dedicated{" "}
-          <span className="text-emerald-600 font-semibold">Full Stack Web Developer</span> from Bangladesh.
+          <span className="text-blue-600 font-semibold">Full Stack Web Developer</span> from Bangladesh.
           I specialize in building dynamic, responsive web applications and Android apps using modern technologies.
         </p>
 
@@ -34,7 +34,7 @@ const About = () => {
                 <td className="p-2 sm:p-3">B.Sc.</td>
                 <td className="p-2 sm:p-3">National Institute of Science and Technology, NIST</td>
                 <td className="p-2 sm:p-3">Computer Science & Engineering</td>
-                <td className="p-2 sm:p-3">Running</td>
+                <td className="p-2 sm:p-3">2023</td>
               </tr>
               <tr className="border-t">
                 <td className="p-2 sm:p-3">H.S.C</td>

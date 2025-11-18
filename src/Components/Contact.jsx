@@ -34,7 +34,7 @@ const Contact = () => {
 
           {/* 🔗 LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/md-aminul-islam-sumon-785061376/"
+            href="https://www.linkedin.com/in/sumon78/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full font-medium transition"
