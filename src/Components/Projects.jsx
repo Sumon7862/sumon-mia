@@ -1,118 +1,112 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import { projects } from "../data/constants";
 
-const projects = [
-  {
-    title: "Portfolio Website",
-    description:
-      "Modern, responsive portfolio built with React & Tailwind CSS showcasing projects & skills.",
-    link: "https://sumon-mia.netlify.app/",
-    category: "Web App",
-  },
-  {
-    title: "E-commerce Website",
-    description:
-      "Full-featured e-commerce platform with authentication, product management, and Stripe payments.",
-    link: "https://bikriplus.netlify.app/",
-    category: "Web App",
-  },
-  {
-    title: "Task Manager",
-    description:
-      "Clean and intuitive To-Do app with focused functionality and minimal design.",
-    link: "https://todo7862.netlify.app/",
-    category: "Web App",
-  },
-  {
-    title: "Landing Page Design",
-    description:
-      "Professional corporate landing page with clean design and smooth navigation.",
-    link: "https://corporatelandingpagedesign.netlify.app/",
-    category: "Landing Page",
-  },
-  {
-    title: "Number Guessing Game",
-    description:
-      "Fun & interactive number-guessing game with instant feedback and easy engagement.",
-    link: "https://sumon7862.github.io/Guessing-Game/",
-    category: "Game",
-  },
-  {
-    title: "MCQ Quiz System",
-    description:
-      "Streamlined MCQ quiz app with clean interface and instant result feedback.",
-    link: "https://sumon7862.github.io/MCQ-Project/",
-    category: "Web App",
-  },
-  {
-    title: "Counter",
-    description:
-      "Minimal, responsive counter app with large buttons and immediate feedback.",
-    link: "https://sumon7862.github.io/Counter/",
-    category: "Web App",
-  },
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
+};
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const [visibleProjects, setVisibleProjects] = useState(projects.slice(0, 3));
-
-  useEffect(() => {
-    setVisibleProjects(showAll ? projects : projects.slice(0, 3));
-  }, [showAll]);
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section
-      id="projects"
-      className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-black py-24 transition-colors duration-300"
-    >
+    <section id="projects" className="section-bg py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-16 text-center border-b-4 border-blue-300 inline-block pb-2">
-          My Projects
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+            My <span className="gradient-text">Projects</span>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full" />
+          <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A selection of projects I&apos;ve built and deployed
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {visibleProjects.map((project, i) => (
-            <div
-              key={i}
-              className="flex flex-col justify-between rounded-2xl shadow-lg p-6 sm:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-            >
-              {/* Category */}
-              <span className="text-xs sm:text-sm font-semibold text-blue-500 mb-2 uppercase">
-                {project.category}
-              </span>
-
-              {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-3">
-                {project.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-6 flex-grow leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Live Button */}
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium text-sm sm:text-base text-center transition-all duration-300"
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {visibleProjects.map((project, i) => (
+              <motion.div
+                key={project.title}
+                layout
+                variants={cardVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                transition={{ delay: i * 0.08 }}
+                whileHover={{ y: -8 }}
+                className="premium-card rounded-2xl p-6 sm:p-8 flex flex-col group"
               >
-                🔗 View Live
-              </a>
-            </div>
-          ))}
-        </div>
+                <span className="text-xs font-bold uppercase tracking-wider
+                                 text-indigo-500 dark:text-indigo-400 mb-3">
+                  {project.category}
+                </span>
 
-        {/* See More / Less */}
-        <div className="text-center mt-12">
-          <button
+                <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-3
+                               group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5 flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-xs font-medium rounded-lg
+                                 bg-indigo-50 dark:bg-indigo-500/10
+                                 text-indigo-600 dark:text-indigo-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5
+                             rounded-xl btn-primary text-sm font-semibold"
+                >
+                  View Live
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setShowAll(!showAll)}
-            className="px-6 sm:px-8 py-3 rounded-full bg-gray-800 text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-medium transition-all duration-300"
+            className="px-8 py-3 rounded-full font-semibold
+                       border-2 border-slate-200 dark:border-slate-700
+                       text-slate-700 dark:text-slate-200
+                       hover:border-indigo-300 dark:hover:border-indigo-500
+                       hover:text-indigo-600 dark:hover:text-indigo-400
+                       transition-colors"
           >
-            {showAll ? "See Less" : "See More"}
-          </button>
-        </div>
+            {showAll ? "Show Less" : `Show All (${projects.length})`}
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

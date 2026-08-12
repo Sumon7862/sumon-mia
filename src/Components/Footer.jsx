@@ -1,40 +1,43 @@
-import React from "react";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-r from-blue-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-black py-8 sm:py-12 overflow-hidden">
-      {/* Decorative Background Circles */}
-      <div className="absolute -top-16 -left-16 w-64 h-64 bg-blue-200 dark:bg-blue-900 rounded-full opacity-30 animate-pulse-slow"></div>
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-200 dark:bg-emerald-800 rounded-full opacity-30 animate-pulse-slow"></div>
+    <footer className="relative border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            © {new Date().getFullYear()}
+            <span className="font-semibold text-indigo-600 dark:text-indigo-400">Sumon Mia</span>
+            <span className="hidden sm:inline">·</span>
+            <span className="flex items-center gap-1">
+              Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> React
+            </span>
+          </p>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left text-sm sm:text-base text-gray-600 dark:text-gray-300">
-        <p className="mb-3 sm:mb-0">
-          © {new Date().getFullYear()} <span className="font-semibold text-blue-600 dark:text-blue-400">Sumon Mia</span>. All rights reserved.
-        </p>
-
-        <div className="flex gap-5 justify-center sm:justify-start mt-3 sm:mt-0">
-          {/* GitHub */}
-          <a
-            href="https://github.com/Sumon7862"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transform transition-all duration-300 hover:scale-125 hover:text-blue-600 dark:hover:text-blue-400"
-            aria-label="GitHub"
-          >
-            <Github size={22} />
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/sumon78/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transform transition-all duration-300 hover:scale-125 hover:text-blue-600 dark:hover:text-blue-400"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={22} />
-          </a>
+          <div className="flex gap-4">
+            <a
+              href="https://github.com/Sumon7862"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="p-2.5 rounded-xl text-slate-500 dark:text-slate-400
+                         hover:text-indigo-600 dark:hover:text-indigo-400
+                         hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sumon78/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="p-2.5 rounded-xl text-slate-500 dark:text-slate-400
+                         hover:text-indigo-600 dark:hover:text-indigo-400
+                         hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,136 +1,139 @@
 import { motion } from "framer-motion";
+import { ArrowDown, Download } from "lucide-react";
 import profileImage from "../assets/sumon.jpg";
+import { stats } from "../data/constants";
 
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
+  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
-
-const skills = [
-  "HTML", "CSS", "JavaScript", "Bootstrap", "React.js",
-  "Tailwind CSS", "Firebase", "MongoDB", "Node.js", "C", "C++"
-];
 
 const Hero = () => {
   return (
-    <section
-      id="home"
-      className="bg-gradient-to-br from-sky-50 via-white to-emerald-50
-                 dark:from-gray-900 dark:via-gray-800 dark:to-black
-                 py-20 sm:py-28 overflow-hidden"
-    >
+    <section id="home" className="mesh-bg relative min-h-[90vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/15 rounded-full blur-3xl animate-pulse-slow" />
+      </div>
+
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8
-                   flex flex-col-reverse md:flex-row items-center gap-10"
+        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24
+                   flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16"
       >
-        {/* LEFT CONTENT */}
         <motion.div variants={item} className="flex-1 text-center md:text-left">
+          <motion.div
+            variants={item}
+            className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full
+                       bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100
+                       dark:border-indigo-500/20 text-sm font-medium text-indigo-600
+                       dark:text-indigo-400"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            Available for opportunities
+          </motion.div>
+
           <motion.h1
             variants={item}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold
-                       text-gray-800 dark:text-white leading-tight mb-4"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold
+                       text-slate-900 dark:text-white leading-tight mb-4"
           >
-            Assalamu Alaikum! I’m{" "}
-            <span className="text-blue-600 dark:text-blue-400">
-              Sumon Mia
-            </span>
+            Assalamu Alaikum! I&apos;m{" "}
+            <span className="gradient-text">Sumon Mia</span>
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="text-base sm:text-lg md:text-xl
-                       text-gray-700 dark:text-gray-300 font-medium mb-6"
+            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl"
           >
             A passionate{" "}
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+            <span className="font-semibold text-indigo-600 dark:text-indigo-400">
               Full Stack Web Developer
             </span>{" "}
-            💻📱
+            crafting beautiful, responsive web experiences from Bangladesh.
           </motion.p>
 
-          {/* SKILLS */}
           <motion.div
             variants={item}
-            className="flex flex-wrap justify-center md:justify-start
-                       gap-2 sm:gap-3 mb-8"
+            className="grid grid-cols-3 gap-4 mb-10 max-w-md mx-auto md:mx-0"
           >
-            {skills.map((skill) => (
-              <motion.span
-                key={skill}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-3 py-1 rounded-full text-xs sm:text-sm font-medium
-                           bg-white dark:bg-gray-800
-                           border border-gray-200 dark:border-gray-700
-                           text-gray-800 dark:text-gray-200
-                           shadow-sm cursor-pointer"
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="premium-card rounded-2xl p-4 text-center"
               >
-                {skill}
-              </motion.span>
+                <div className="font-display text-2xl font-bold gradient-text">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </motion.div>
 
-          {/* CTA */}
-          <motion.a
-            variants={item}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#projects"
-            className="inline-block bg-blue-600 text-white
-                       px-6 py-3 rounded-full font-semibold
-                       hover:bg-blue-700 dark:bg-blue-500
-                       dark:hover:bg-blue-600 transition"
-          >
-            View My Work
-          </motion.a>
+          <motion.div variants={item} className="flex flex-wrap gap-4 justify-center md:justify-start">
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              href="#projects"
+              className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-full"
+            >
+              View My Work
+              <ArrowDown className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              href="/Sumon_CV.pdf"
+              download
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full
+                         font-semibold border-2 border-indigo-200 dark:border-indigo-500/30
+                         text-indigo-600 dark:text-indigo-400
+                         hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
+            </motion.a>
+          </motion.div>
         </motion.div>
 
-        {/* RIGHT IMAGE CARD */}
-        <motion.div
-          variants={item}
-          whileHover={{ y: -8 }}
-          className="flex-1 flex justify-center"
-        >
+        <motion.div variants={item} className="flex-1 flex justify-center">
           <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative rounded-2xl bg-white dark:bg-gray-800
-                       p-6 sm:p-8 shadow-2xl group"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative"
           >
-            <img
-              src={profileImage}
-              alt="Sumon Mia"
-              className="w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72
-                         object-cover rounded-full mx-auto
-                         border-4 border-blue-400 dark:border-blue-600"
-            />
-
-            <div className="mt-5 text-center">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">
-                Sumon Mia
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Full Stack Web Developer
-              </p>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 blur-2xl opacity-30 scale-110" />
+            <div className="relative premium-card rounded-3xl p-6 sm:p-8">
+              <div className="relative">
+                <img
+                  src={profileImage}
+                  alt="Sumon Mia"
+                  className="w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72
+                             object-cover rounded-2xl mx-auto
+                             ring-4 ring-indigo-200 dark:ring-indigo-500/30"
+                />
+                <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-white font-display font-bold text-lg shadow-lg">
+                  Dev
+                </div>
+              </div>
+              <div className="mt-6 text-center">
+                <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white">
+                  Sumon Mia
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 mt-1">
+                  Full Stack Web Developer
+                </p>
+              </div>
             </div>
-
-            {/* GLOW RING */}
-            <div
-              className="absolute inset-0 rounded-2xl border-2 border-blue-400
-                         opacity-20 group-hover:opacity-40
-                         transition duration-500"
-            />
           </motion.div>
         </motion.div>
       </motion.div>

@@ -1,69 +1,87 @@
-import React from "react";
-import { Github, Linkedin, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { MessageCircle, Github, Linkedin, Mail } from "lucide-react";
+import { contacts } from "../data/constants";
 
-const contacts = [
-  {
-    name: "WhatsApp",
-    icon: <MessageCircle size={20} />,
-    href: "https://wa.me/01937952527",
-    bg: "bg-green-500 hover:bg-green-600",
-    text: "text-white",
-  },
-  {
-    name: "GitHub",
-    icon: <Github size={20} />,
-    href: "https://github.com/Sumon7862",
-    bg: "bg-gray-900 hover:bg-black",
-    text: "text-white",
-  },
-  {
-    name: "LinkedIn",
-    icon: <Linkedin size={20} />,
-    href: "https://www.linkedin.com/in/sumon78/",
-    bg: "bg-blue-500 hover:bg-blue-600",
-    text: "text-white",
-  },
-];
+const iconMap = {
+  WhatsApp: MessageCircle,
+  GitHub: Github,
+  LinkedIn: Linkedin,
+};
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
 
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="relative bg-gradient-to-tr from-blue-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-black py-20 sm:py-28 overflow-hidden"
-    >
-      {/* Animated Background Circles */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-200 dark:bg-blue-900 rounded-full opacity-30 animate-pulse-slow"></div>
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-200 dark:bg-emerald-800 rounded-full opacity-30 animate-pulse-slow"></div>
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-6 border-b-4 border-blue-300 inline-block pb-2">
-          Let's Connect
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl mb-12 leading-relaxed">
-          I'm always open to discussing new opportunities, exciting projects, or collaborations.
-          Whether it's a job offer, freelance work, or just a hello — feel free to reach out!
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-6">
-          {contacts.map((contact, i) => (
-            <a
-              key={i}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative ${contact.bg} ${contact.text} px-6 py-3 sm:px-8 sm:py-4 rounded-3xl font-semibold shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 flex items-center gap-3`}
-            >
-              <span className="transform transition duration-300 group-hover:scale-125">
-                {contact.icon}
-              </span>
-              <span className="text-sm sm:text-base">{contact.name}</span>
-
-              {/* Animated Circle Effect */}
-              <span className="absolute -top-2 -left-2 w-4 h-4 bg-white rounded-full opacity-50 animate-ping-slow"></span>
-            </a>
-          ))}
-        </div>
+    <section id="contact" className="mesh-bg relative py-20 sm:py-28 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-400/15 rounded-full blur-3xl animate-pulse-slow" />
       </div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10"
+      >
+        <motion.div variants={item} className="mb-14">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+            Let&apos;s <span className="gradient-text">Connect</span>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full" />
+        </motion.div>
+
+        <motion.p
+          variants={item}
+          className="text-slate-600 dark:text-slate-300 text-lg mb-4 leading-relaxed max-w-2xl mx-auto"
+        >
+          I&apos;m always open to discussing new opportunities, exciting projects, or collaborations.
+        </motion.p>
+
+        <motion.a
+          variants={item}
+          href="mailto:sumonmia7862@gmail.com"
+          className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400
+                     font-medium mb-12 hover:underline"
+        >
+          <Mail className="w-4 h-4" />
+          sumonmia7862@gmail.com
+        </motion.a>
+
+        <motion.div
+          variants={item}
+          className="flex flex-wrap justify-center gap-5"
+        >
+          {contacts.map((contact) => {
+            const Icon = iconMap[contact.name];
+            return (
+              <motion.a
+                key={contact.name}
+                href={contact.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`group relative flex items-center gap-3 px-7 py-4 rounded-2xl
+                           bg-gradient-to-r ${contact.color} text-white font-semibold
+                           shadow-lg hover:shadow-xl transition-shadow`}
+              >
+                <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                {contact.name}
+              </motion.a>
+            );
+          })}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
