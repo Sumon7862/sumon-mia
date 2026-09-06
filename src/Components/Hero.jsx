@@ -121,9 +121,6 @@ const Hero = () => {
                              object-cover rounded-2xl mx-auto
                              ring-4 ring-indigo-200 dark:ring-indigo-500/30"
                 />
-                <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-white font-display font-bold text-lg shadow-lg">
-                  Dev
-                </div>
               </div>
               <div className="mt-6 text-center">
                 <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white">
